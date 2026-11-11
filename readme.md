@@ -31,7 +31,7 @@ Estas cuatro categorías están sujetas al contexto de cada país o región. Un 
 
 Dado que OpenAlex dispone, dentro de los metadatos de un trabajo, tanto el nombre como el apellido de una persona junto al código de país de la institución donde se produjo la investigación, esto se utiliza en conjunto para clasificar el género con la mayor certeza posible, considerando las restricciones ya mencionadas en las propiedades de estos datos y de los modelos, así como el gran volumen que abarcan.
 
-Los LLMs pueden recibir información diversa dentro del prompt encargado de explicar la tarea de inferencia, siendo esto una ventaja relativa respecto a los campos limitados y respuestas rígidas que los servicios por APIs ofrecen. Herrero-Solana et al. (2026) experimentaron con diversos modelos de lenguaje de pesos abiertos del tipo instruct para varias familias (Llama, Gemma, Phi, Mistral, Qwen, Deepseek, Yi) utilizando nombre y país de una persona como datos de entrada en el prompt, junto a tres posibles categorías de género (hombre, mujer y desconocido).
+Los LLMs pueden recibir información diversa dentro del prompt encargado de explicar la tarea de inferencia, siendo esto una ventaja relativa respecto a los campos limitados y respuestas rígidas que los servicios por APIs ofrecen. [Herrero-Solana et al. (2026)](https://zenodo.org/records/18610104) experimentaron con diversos modelos de lenguaje de pesos abiertos del tipo instruct para varias familias (Llama, Gemma, Phi, Mistral, Qwen, Deepseek, Yi) utilizando nombre y país de una persona como datos de entrada en el prompt, junto a tres posibles categorías de género (hombre, mujer y desconocido).
 
 Los modelos elegidos variaron en tamaño entre los 270 millones y 70 mil millones de parámetros, donde muestran que el desempeño es aceptable alrededor de los 7 mil millones, con un rendimiento decreciente al superar el umbral de los 12-14 mil millones. La precisión utilizada para cargar el modelo  fue entre 8 y 16 bits, ejecutando inferencia local con zero-shot prompting.
 
@@ -39,7 +39,7 @@ En su diseño redactan un prompt asignando un rol de experto para ejecutar la ta
 
 A partir de esto y lo señalado en el trabajo de You, Z. et al, para la construcción de este subindicador se prepara un prompt de características similares con múltiples ejemplos de nombres latinoamericanos y sus posibles géneros (few-shot prompting). Estos ejemplos suman información adicional a su conocimiento de nombres en inglés.
 
-Este camino se basa en la técnica de in-context learning (ICL) donde un LLM recibe ejemplos aumentando el contexto, adaptando su inferencia en pos de un mejor desempeño para resolver la tarea. Dong et al. (2024) explican que ICL es sensible a la selección de ejemplos y al orden de estos en el prompt. Tomando esto en cuenta, la estructura del prompt utilizado fue constante entre los modelos para los países de la región latinoamericana. Para el etiquetado extrarregional, véase su sección particular.
+Este camino se basa en la técnica de in-context learning (ICL) donde un LLM recibe ejemplos aumentando el contexto, adaptando su inferencia en pos de un mejor desempeño para resolver la tarea. [Dong et al. (2024)](https://arxiv.org/pdf/2301.00234) explican que ICL es sensible a la selección de ejemplos y al orden de estos en el prompt. Tomando esto en cuenta, la estructura del prompt utilizado fue constante entre los modelos para los países de la región latinoamericana. Para el etiquetado extrarregional, véase su sección particular.
 
 El prompt y los LLMs seleccionados fueron los siguientes:
 
@@ -71,10 +71,10 @@ system_prompt = (
 ```
 
 
-- Gemma 3 12b Instruct (google/gemma-3-12b-it)
-- Llama 3.1 8b Instruct (meta-llama/Llama-3.1-8B-Instruct)
-- Mistral Small 22b Instruct (mistralai/Mistral-Small-Instruct-2409)
-- Mistral Nemo 12 b Instruct (mistralai/Mistral-Nemo-Instruct-2407)
+- [Gemma 3 12b Instruct](https://huggingface.co/google/gemma-3-12b-it)
+- [Llama 3.1 8b Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
+- [Mistral Small 22b Instruct](https://huggingface.co/mistralai/Mistral-Small-Instruct-2409)
+- [Mistral Nemo 12 b Instruct](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407)
 
 Este grupo de LLMs poseen características similares en tamaño, dentro del rango de los 8 y 22 mil millones de parámetros, todos del tipo instruct. Su selección se basa en la literatura descrita anteriormente según sus características técnicas. Estos modelos se cargan localmente con la librería de Python transformers de Hugging Face, plataforma que aloja y disponibiliza modelos de aprendizaje de máquinas, conjuntos de datos y aplicaciones en la red.
 
