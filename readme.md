@@ -43,8 +43,6 @@ Este camino se basa en la técnica de in-context learning (ICL) donde un LLM rec
 
 El prompt y los LLMs seleccionados fueron los siguientes:
 
-[CUADRO PROMPT]
-
 ```python
 system_prompt = (
     """
@@ -70,7 +68,6 @@ system_prompt = (
 )
 ```
 
-
 - [Gemma 3 12b Instruct](https://huggingface.co/google/gemma-3-12b-it)
 - [Llama 3.1 8b Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)
 - [Mistral Small 22b Instruct](https://huggingface.co/mistralai/Mistral-Small-Instruct-2409)
@@ -79,8 +76,6 @@ system_prompt = (
 Este grupo de LLMs poseen características similares en tamaño, dentro del rango de los 8 y 22 mil millones de parámetros, todos del tipo instruct. Su selección se basa en la literatura descrita anteriormente según sus características técnicas. Estos modelos se cargan localmente con la librería de Python transformers de Hugging Face, plataforma que aloja y disponibiliza modelos de aprendizaje de máquinas, conjuntos de datos y aplicaciones en la red.
 
 Los pesos de los modelos se cargaron en GPUs de alto rendimiento AMD Instinct MI210 con una memoria de 64 GB, utilizando librerías de Pytorch adaptadas al software ROCm compatible con el uso de esta marca de tarjetas. Una sola tarjeta tiene capacidad suficiente para almacenar los modelos elegidos sin cuantizar y todo lo requerido para su uso, como la ventana de contexto y el caché, incluso con el modelo de más parámetros de la lista (Mistral Small).
-
-(Luego sesgos en ICL y modelos con dong et al y otro paper de clasificación de género)
 
 Una dificultad importante presente en esta tarea es la ausencia de Ground Truth o verdad de campo al carecer de un conjunto de nombres etiquetados con género verificado. Esta es la principal razón por la que el género etiquetado es el percibido a partir de los datos (nombre y país de investigación). Esta limitación convierte la verificación manual de la clasificación hecha por los modelos en un ejercicio de concordancia entre estos y la percepción de la persona encargada de analizar los resultados.
 
