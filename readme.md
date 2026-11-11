@@ -88,18 +88,17 @@ Una dificultad importante presente en esta tarea es la ausencia de Ground Truth 
 Con el conjunto de nombres ya clasificados por los cuatro modelos, se toma una muestra de 1.000 elementos aleatorios (constante entre los cuatro conjuntos producidos) para revisar manualmente estas etiquetas y luego estimar el desempeño de los modelos siguiendo diversas métricas como exactitud, precisión, recall o F1.
 
 Las definiciones de estás métricas se explican brevemente a continuación, considerando la clase c como una de las clases a medir, puesto que este es un problema de etiquetado con cuatro clases o categorías diferentes.
-
 | Métrica | Definición | Fórmula |
 |---|---|---|
-| Exactitud o accuracy | Proporción de todas las filas correctamente clasificadas | c TPcN<br>*TPc es True Positives de la clase c<br>*N es tamaño del conjunto, en este caso de la muestra |
-| Precisión | Proporción de filas etiquetadas con clase c que realmente pertenecen a dicha clase. | Pc =TPcTPc + FPc<br>*TPc es True Positives de la clase c<br>*FPc es False Positives de la clase c |
-| Sensibilidad o recall | Proporción de filas etiquetadas con éxito por el modelo con clase c que realmente pertenecen a dicha clase. | Rc =TPcTPc + FNc<br>*TPc es True Positives de la clase c<br>*FNc es False Negatives de la clase c |
-| F1 | Media armónica entre precisión y recall. | F1c =2 Pc RcPc + Rc |
-| Precisión Macro | Precisión promedio, cada clase pesa lo mismo. | 1\|Clases\|c Pc<br>*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
-| Recall Macro | Recall promedio, cada clase pesa lo mismo. | 1\|Clases\|c Rc<br>*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
-| F1 Macro | F1 promedio, cada clase pesa lo mismo. | 1\|Clases\|c F1c<br>*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
-| Soporte | Número de filas que pertenecen verdaderamente a la clase c. | Sc =TPc + FNc<br>*TPc es True Positives de la clase c<br>*FNc es False Negatives de la clase c |
-| F1 Ponderado | F1 promedio ponderado en función del tamaño de cada clase en el conjunto. | c ScN F1c<br>*N es el tamaño del conjunto, en este caso la muestra |
+| Exactitud o accuracy | Proporción de todas las filas correctamente clasificadas | $`\frac{\sum_c TP_c}{N}`$<br>\*TPc es True Positives de la clase c<br>\*N es tamaño del conjunto, en este caso de la muestra |
+| Precisión | Proporción de filas etiquetadas con clase c que realmente pertenecen a dicha clase. | $`P_c = \frac{TP_c}{TP_c + FP_c}`$<br>\*TPc es True Positives de la clase c<br>\*FPc es False Positives de la clase c |
+| Sensibilidad o recall | Proporción de filas etiquetadas con éxito por el modelo con clase c que realmente pertenecen a dicha clase. | $`R_c = \frac{TP_c}{TP_c + FN_c}`$<br>\*TPc es True Positives de la clase c<br>\*FNc es False Negatives de la clase c |
+| F1 | Media armónica entre precisión y recall. | $`F1_c = \frac{2 P_c R_c}{P_c + R_c}`$ |
+| Precisión Macro | Precisión promedio, cada clase pesa lo mismo. | $`\frac{1}{\lvert \text{Clases} \rvert} \sum_c P_c`$<br>\*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
+| Recall Macro | Recall promedio, cada clase pesa lo mismo. | $`\frac{1}{\lvert \text{Clases} \rvert} \sum_c R_c`$<br>\*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
+| F1 Macro | F1 promedio, cada clase pesa lo mismo. | $`\frac{1}{\lvert \text{Clases} \rvert} \sum_c F1_c`$<br>\*Clases es el conjunto con las categorías de las clases, en este caso su magnitud equivale a 4 |
+| Soporte | Número de filas que pertenecen verdaderamente a la clase c. | $`S_c = TP_c + FN_c`$<br>\*TPc es True Positives de la clase c<br>\*FNc es False Negatives de la clase c |
+| F1 Ponderado | F1 promedio ponderado en función del tamaño de cada clase en el conjunto. | $`\sum_c \frac{S_c}{N} F1_c`$<br>\*N es el tamaño del conjunto, en este caso la muestra |
 
 Fuente:
 
