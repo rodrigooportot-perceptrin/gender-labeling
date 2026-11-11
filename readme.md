@@ -18,8 +18,8 @@ Para esta versión del índice, la formulación del subindicador de proporción 
 
 - mujer
 - hombre
-- desconocido_ambiguo o desconocido por ambigüedad
-- desconocido_sigla o desconocido por sigla
+- desconocido_ambiguo
+- desconocido_sigla
 
 Si bien las dos primeras etiquetas son autodescriptivas, la tercera y cuarta son incluidas para casos donde no es posible determinar con certeza suficiente el presunto género de una persona: desconocido por ambigüedad existe para nombres unisex o de género neutro, mientras que desconocido por sigla se asigna a nombres abreviados en iniciales que no pueden ser extendidos para discernir un posible género. Estas categorías de abstención entregan flexibilidad en casos de incertidumbre.
 
