@@ -70,7 +70,6 @@ system_prompt = (
 )
 ```
 
-Fuente: Elaboración propia.
 
 - Gemma 3 12b Instruct (google/gemma-3-12b-it)
 - Llama 3.1 8b Instruct (meta-llama/Llama-3.1-8B-Instruct)
@@ -100,7 +99,6 @@ Las definiciones de estás métricas se explican brevemente a continuación, con
 | Soporte | Número de filas que pertenecen verdaderamente a la clase c. | $`S_c = TP_c + FN_c`$<br>\*TPc es True Positives de la clase c<br>\*FNc es False Negatives de la clase c |
 | F1 Ponderado | F1 promedio ponderado en función del tamaño de cada clase en el conjunto. | $`\sum_c \frac{S_c}{N} F1_c`$<br>\*N es el tamaño del conjunto, en este caso la muestra |
 
-Fuente:
 
 El conjunto de datos disminuyó levemente su tamaño por una limpieza previa, quitando observaciones con datos erróneos o mal catalogados como nombres (ejemplos: “Cadernos de Pós-Graudação em Letras”, “Una Clase De Equivalencia”). Este ruido es complejo de abordar, puesto que proviene de la fuente original. Se propone una limpieza más profunda a partir de la siguiente edición del índice. A su vez, el análisis fue realizado por dos integrantes del equipo, con leves discrepancias en la clasificación de algunos nombres, disminuyendo también el total de filas a analizar por consenso. Todo esto redujo la dimensión de las muestras de datos a un total de 996 filas.
 
@@ -111,7 +109,6 @@ El conjunto de datos disminuyó levemente su tamaño por una limpieza previa, qu
 | Nemo | 0,89 | 0,76 | 0,90 | 0,80 | 0,90 |
 | Small | 0,76 | 0,81 | 0,65 | 0,66 | 0,76 |
 
-Fuente:
 
 | Modelo / Métrica | Clase | Precisión | Recall | F1 | Soporte | Presencia porcentual de la categoría en la muestra |
 |---|---|---|---|---|---|---|
@@ -131,8 +128,6 @@ Fuente:
 | | mujer | 0.54 | 1.00 | 0.70 | 268 | 26,9% |
 | | desconocido_sigla | 0.94 | 0.68 | 0.79 | 66 | 6,6% |
 | | desconocido_ambiguo | 0.79 | 0.21 | 0.33 | 52 | 5,2% |
-
-Fuente:
 
 Gemma lidera en 3 de 5 métricas Macro, mientras que Nemo alcanza mejores puntajes en Recall Macro y F1 Macro. Esto sugiere que Gemma se desempeña mejor acertando a las categorías de manera general, como se ve en la tabla de valores particulares para cada clase, mientras que Nemo logra captar los nombres desconocidos, nótese al observar el Recall de las clases. Gemma tiene dificultades con los nombres ambiguos. No obstante, estos son los elementos que componen una menor parte de la muestra.
 
