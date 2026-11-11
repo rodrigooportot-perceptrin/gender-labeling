@@ -3,7 +3,9 @@ El subindicador de proporción de autoras en IA busca medir la representación d
 La formulación del subindicador, para cada país, es la siguiente:
 
 ```
-1|años| (i  añosmiti) * 100  ,   años ={2021,2022,2023,2024,2025}
+$$
+\frac{1}{|\text{años}|} \sum_{i \in \text{años}} \frac{m_i}{t_i} \times 100 \;,\qquad \text{años} = \{2021, 2022, 2023, 2024, 2025\}
+$$
 ```
 
 donde m y t corresponden al número de mujeres y total de investigadores respectivamente, para el año i. La división por la magnitud del conjunto de años equivale a 5, entregando el promedio de estas fracciones. Luego se amplifica este resultado por 100 para su representación porcentual.
